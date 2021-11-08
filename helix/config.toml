@@ -1,0 +1,16 @@
+
+theme = "gruvbox"
+
+[editor]
+scrolloff = 5
+line-number = "relative"
+smartcase = true
+autopairs = true
+auto-completion = true
+
+
+[keys.insert]
+"C-c" = "normal_mode" # Maps Alt-X to enter normal mode
+
+[lsp]
+display-messages = true

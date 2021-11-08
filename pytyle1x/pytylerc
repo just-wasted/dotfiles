@@ -1,0 +1,56 @@
+Config.MISC = {
+	'tilers': ['Vertical', 'HorizontalRows', 'Maximal', ],
+	'global_tiling': True,
+	'timeout': 0.1,
+	'decorations': True,
+	'original_decor': True,
+	'margin_step': 8,
+	'internal_margin_step': 4,
+}
+
+Config.KEYMAP = {
+	'Super-A': 'tile.default',
+	'Super-U': 'untile',
+	'Super-Z': 'cycle_tiler',
+	'Super-Shift-R': 'reload',
+	'Super-Down': 'master_decrease',
+	'Super-Up': 'master_increase',
+	'Super-plus': 'add_master',
+	'Super-minus': 'remove_master',
+	'Super-Right': 'switch_previous',
+	'Super-Left': 'switch_next',
+	'Super-Shift-Left': 'increase_margins',
+	'Super-Shift-Right': 'decrease_margins',
+    'Super-S': 'win_next',
+    'Super-A': 'win_previous',
+    'Super-Alt-R': 'reset',
+    'Super-M': 'make_active_master'
+}
+
+Config.FILTER = [
+	'gmrun', 'gimp', 'download', 'xfce4-appfinder'
+]
+
+Config.LAYOUT = {
+	'Vertical': {
+		'width_factor': 0.5,
+		'margin': 16,
+		'internal_margin': 8,
+	},
+
+
+	'Maximal': {
+		'margin': 16
+	},
+
+	'HorizontalRows': {
+		'height_factor': 0.5,
+		'row_size': 3,
+		'margin': 16,
+		'internal_margin': 8
+	},
+}
+
+Config.TILING = {
+	'default': 'Vertical',
+}
