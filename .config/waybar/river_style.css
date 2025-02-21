@@ -1,0 +1,231 @@
+* {
+    border: none;
+    border-radius: 0;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, JetBrains Mono Bold, sans-serif;
+    /*font-family: JetBrains Mono Bold, FontAwesome;*/
+    padding: 0;
+    margin: 0;
+    min-height: 8px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#tags {
+    margin-right: 8px;
+    border-radius: 10px;
+    transition: none;
+    background: #383c4a;
+}
+
+#tags button {
+    transition: none;
+    color: #7c818c;
+    background: transparent;
+    padding: 5px;
+    font-size: 8px;
+    border-radius: inherit;
+}
+
+#tags button.occupied {
+    background: #4e5263;
+    /*color: #383c4a;*/
+    color: #7c818c;
+    border-radius: inherit;
+}
+
+#tags button.focused {
+    transition: none;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border-radius: inherit;
+    color: #383c4a;
+    background: #7c818c;
+}
+
+#tags button.urgent {
+    background: #4e5263;
+    color: white;
+    border-radius: inherit;
+}
+
+#layout {
+    padding-right: 4px;
+    padding-left: 8px;
+    /*margin-right: -4px;*/
+    border-radius: 10px 0px 0px 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#keyboard-state {
+    /*margin-right: 8px;*/
+    /*padding-right: 4px;*/
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#keyboard-state > label {
+    padding-left: 4px;
+    padding-right: 2px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#keyboard-state > label.locked {
+/*#keyboard-state.capslock.locked {*/
+    background: #90b1b1;
+    color: #2a5c45;
+    /*padding-left: 9;*/
+    padding-left: 4px;
+    padding-right: 7px;
+}
+
+#idle_inhibitor {
+    padding-left: 2px;
+    padding-right: 12px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#idle_inhibitor.activated {
+    padding-left: 2px;
+    padding-right: 12px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #2a5c45;
+    background: #90b1b1;
+}
+
+#custom-pacman {
+    /*margin-right: 8px;*/
+    /*padding-left: 16px;*/
+    /*padding-right: 8px;*/
+    /*border-radius: 10px 0px 0px 10px;*/
+    /*transition: none;*/
+    /*color: #c2c2c2;*/
+    /*background: #383c4a;*/
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#taskbar {
+    /*margin-right: 8px;*/
+    /*padding-left: 16px;*/
+    /*padding-right: 8px;*/
+    /*border-radius: 10px 0px 0px 10px;*/
+    /*transition: none;*/
+    /*color: #c2c2c2;*/
+    /*background: #383c4a;*/
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 4px;
+    border-radius: 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#window {
+    padding-left: 8px;
+    color: #c2c2c2;
+}
+
+#clock {
+    /*margin-right: 8px;*/
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    /*border-radius: 10px 0px 0px 10px;*/
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#custom-weather {
+    padding-right: 16px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#network {
+    margin-right: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#pulseaudio {
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#cpu {
+    /*margin-right: 8px;*/
+    padding-left: 8px;
+    /*padding-right: 16px;*/
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#memory {
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 16px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+
+#tray {
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}

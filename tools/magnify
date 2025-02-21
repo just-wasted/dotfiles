@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grim -t ppm -s 10 -g "$(slurp)" - | swappy -f -

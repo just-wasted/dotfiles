@@ -1,0 +1,6 @@
+#!/bin/bash
+
+INFILE=.config/river/init
+readarray buffer < $INFILE
+
+echo "${buffer[@]}" | sed -e '/^[[:space:]]*$/d' -e '/^[[:space:]]*#/d' | grep map | awk '{sub("$", "  <", $3)}; {sub("$", " > ", $5)}; 1' | cut --complement -d" " -f1,2 | wofi --dmenu > /dev/null

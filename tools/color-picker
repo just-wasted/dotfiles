@@ -1,0 +1,5 @@
+#!/bin/bash
+
+VALUE=$(grim -g "$(slurp -p)" -t ppm - |  od -An -j 11 -N 3 -t x1 -v | tr -d '[:space:] [:cntrl:] \n')
+
+echo \#${VALUE} | wl-copy

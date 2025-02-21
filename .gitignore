@@ -1,0 +1,12 @@
+/*
+!.config/
+.config/*
+!.config/alacritty/
+!.config/river/
+!.config/waybar/
+!.config/gammastep/
+!.config/nvim/
+.config/nvim/lazy-lock.json
+!.env
+!tools/
+!.gitignore

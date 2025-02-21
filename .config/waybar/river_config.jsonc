@@ -1,0 +1,206 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "margin": "0 13 -10 18",
+    // Choose the order of the modules
+    "modules-left": ["river/tags", "wlr/taskbar", "custom/pacman","river/layout", "idle_inhibitor", "river/window"], 
+    //"modules-center": [],
+    "modules-right": ["cpu", "memory", "network", "network#net2", "pulseaudio", "tray", "clock"],
+
+
+    //***************************
+    //*  Modules configuration  *
+    //***************************
+
+    "river/tags": {
+        "num-tags": 4,
+        "set-tags": [
+          2147483649,
+          2147483650,
+          2147483652,
+          2147483656,
+          2147483664
+        ]
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon} ",
+        "icon-size": {},
+        //"icon-theme": "${besgnulinux-mono-grey}",
+        //"spacing": 9,
+        "sort-by-app-id": true,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "fullscreen"
+    },
+
+    "river/window": {
+        "format": " {}",
+        "align": 0,
+        "min-length": 82,
+        "max-length": 82,
+    },
+
+	//   "hyprland/language": {
+	//       "format-en": "us",
+	//       "format-de": "de",
+	//"min-length": 4,
+	//"tooltip": false
+	//   },
+    "river/layout": {
+        "format": "{}",
+        //"min-length": 10,
+        //"align": "right"
+    },
+
+
+    "keyboard-state": {
+        //"numlock": true,
+        "device-path": "/dev/input/by-id/usb-04d9_USB-HID_Keyboard-event-kbd",
+        "capslock": true,
+        "format": "{icon} ",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        },
+    },
+
+    "custom/pacman": {
+        "format": "{} ",
+        "interval": 3600,                     			// every hour
+        "exec": "dnf check-upgrade | wc -l",	// # of updates
+        "tooltip": false,
+    },
+
+    "clock": {
+        "locale":"de_DE.utf8",
+        "format": "{:%a, %d %b, %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{:%V}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+
+//"clock": {
+//        "format": "{:%H:%M}  ",
+//        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+//        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+//        "calendar-weeks-pos": "left",
+//        "today-format": "<span color='#ff6699'><b><u>{}</u></b></span>",
+//        "format-calendar": "<span color='#ecc6d9'><b>{}</b></span>",
+//        "format-calendar-weeks": "<span color='#99ffdd'><b>W{:%V}</b></span>",
+//        "format-calendar-weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+//        "on-scroll": {
+//                    "calendar": 1
+//                     }
+//    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "reverse-scrolling": 1,
+        "format": "{volume}% {icon} {format_source}",
+        //"format-bluetooth": "{volume}% {icon} {format_source}",
+        //"format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "min-length": 10,
+    },
+
+
+    "network": {
+        //"interface": "wlp2s0",
+        "interval": 2,
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "  {bandwidthDownBits}",
+        //"format-ethernet": "{ifname} ",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname}  ",
+        //"tooltip-format-ethernet": " {bandwidthDownBits}  {bandwidthUpBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "min-length": 10,
+    },
+
+
+    "network#net2": {
+        //"interface": "wlp2s0",
+        "interval": 2,
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "  {bandwidthUpBits}",
+        //"format-ethernet": "{ifname} ",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname}  ",
+        //"tooltip-format-ethernet": " {bandwidthDownBits}  {bandwidthUpBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "min-length": 10,
+    },
+
+
+    "memory": {
+        "format": "{used:0.2f} ",
+        "interval": 2,
+        //"exec": "free -h | awk '/Me333333333333333333        "tooltip": false,
+    },
+
+    "cpu": {
+      "interval": 2,
+      "format": "{usage}% ", //
+      "min-length": 6
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false,
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 0
+    },
+
+    "idle_inhibitor": {
+        //"min-length": 3,
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "󰒲"
+        }
+    },
+}
