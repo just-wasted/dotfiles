@@ -14,7 +14,7 @@ compinit
 
 ############ENVIRONMENT
 export $(envsubst < '/home/wasted/.env')
-export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/go/bin:~/.local/bin
 ############Prompt
 ##################
 PROMPT='%F{#6a6a6a}%n@%F{#6a6a6a}%m%f %f%B%~%b%F{#6a6a6a} > '
@@ -79,7 +79,7 @@ function xterm_title_preexec () {
 	[[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' && print -n -- "${(q)1}\e\\"; }
 }
 
-if [[ "$TERM" == (Eterm*|alacritty*|aterm*|gnome*|konsole*|kterm*|putty*|rxvt*|screen*|tmux*|xterm*) ]]; then
+if [[ "$TERM" == (foot*|Eterm*|alacritty*|aterm*|gnome*|konsole*|kterm*|putty*|rxvt*|screen*|tmux*|xterm*) ]]; then
 	add-zsh-hook -Uz precmd xterm_title_precmd
 	add-zsh-hook -Uz preexec xterm_title_preexec
 fi

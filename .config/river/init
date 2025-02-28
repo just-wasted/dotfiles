@@ -40,9 +40,9 @@ riverctl input pointer-11944-8707-Sharkoon_Technologies_GmbH_Sharkoon_Light2_200
 
 riverctl input pointer-11944-8707-Sharkoon_Technologies_GmbH_Sharkoon_Light2_200 pointer-accel -0.20
 
-riverctl map normal Super N spawn 'alacritty -e nvim'
+riverctl map normal Super N spawn '$TERMINAL -e nvim'
 
-riverctl map normal Super Q spawn alacritty
+riverctl map normal Super Q spawn '$TERMINAL'
 
 riverctl map normal Super R spawn 'wofi --show drun --width=15% --height=200'
 
