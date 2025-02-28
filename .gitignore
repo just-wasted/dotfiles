@@ -4,6 +4,8 @@
 !.config/alacritty/
 !.config/river/
 !.config/waybar/
+!.config/wofi/
+!.config/foot/
 !.config/gammastep/
 !.config/nvim/
 .config/nvim/lazy-lock.json
