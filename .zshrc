@@ -14,7 +14,7 @@ compinit
 
 ############ENVIRONMENT
 export $(envsubst < '/home/wasted/.env')
-export PATH=$PATH:~/go/bin:~/.local/bin
+#export PATH=$PATH:~/go/bin:~/.local/bin
 ############Prompt
 ##################
 PROMPT='%F{#6a6a6a}%n@%F{#6a6a6a}%m%f %f%B%~%b%F{#6a6a6a} > '
