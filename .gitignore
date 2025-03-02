@@ -12,3 +12,4 @@
 !tools/
 !.gitignore
 !.zshrc
+!.tmux.conf
