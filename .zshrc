@@ -18,7 +18,7 @@ export PATH=$PATH:~/go/bin:~/.local/bin
 ############Prompt
 ##################
 # PROMPT='%F{#6a6a6a}%n@%F{#6a6a6a}%m%F{#1f7177} '$CONTAINER_ID' %f%B%~%b%F{#6a6a6a} > ' 
-PROMPT='%F{#1f7177}'$CONTAINER_ID' %f%B%(4~|.../%3~|%~)%b%F{#6a6a6a} > ' 
+PROMPT='%F{#1f7177}'$CONTAINER_ID' %f%B%(3~|.../%2~|%~)%b%F{#6a6a6a} > ' 
 RPROMPT='%f[%F{#1f7177}%?%f]'
 
 ###########Aliases

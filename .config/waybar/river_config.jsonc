@@ -1,7 +1,8 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "margin": "0 13 -10 18",
+    "margin": "-2 6 -2 6",
+    //"margin": "0 13 -10 18",
     // Choose the order of the modules
     "modules-left": ["river/tags", "wlr/taskbar", "custom/pacman","river/layout", "idle_inhibitor", "river/window"], 
     //"modules-center": [],
@@ -13,7 +14,7 @@
     //***************************
 
     "river/tags": {
-        "num-tags": 4,
+        "num-tags": 5,
         "set-tags": [
           2147483649,
           2147483650,

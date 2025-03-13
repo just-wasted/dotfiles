@@ -8,13 +8,15 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
+# Set the default layout generator to be rivertile and start it.
+# River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 
 riverctl spawn /home/wasted/.config/river/idle.sh
 
 riverctl send-layout-cmd rivertile "main-location left"
 
-rivertile -view-padding 6 -outer-padding 6 &
+rivertile -view-padding 2 -outer-padding 4 &
 
 riverctl default-attach-mode bottom
 
@@ -118,13 +120,20 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 # Super + Middle Mouse Button to toggle float
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
+all_tags=$(((1 << 32) - 1))
+sticky_tag=$((1 << 31))
+all_but_sticky_tag=$(( $all_tags ^ $sticky_tag ))
+
+riverctl map normal Super Z toggle-view-tags $sticky_tag
+riverctl spawn-tagmask ${all_but_sticky_tag}
+
 for i in $(seq 1 9)
 do
     tags=$((1 << ($i - 1)))
 
     # Super+[1-9] to focus tag [0-8]
-    riverctl map normal Super $i set-focused-tags $tags
-
+    # riverctl map normal Super $i set-focused-tags $tags
+    riverctl map normal Super $i set-focused-tags $(($sticky_tag + $tags))
     # Super+Shift+[1-9] to tag focused view with tag [0-8]
     riverctl map normal Super+Shift $i set-view-tags $tags
 
