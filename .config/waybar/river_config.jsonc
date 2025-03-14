@@ -2,10 +2,12 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "margin": "-2 6 -2 6",
+    "height": 21,
     //"margin": "0 13 -10 18",
     // Choose the order of the modules
+    //"modules-left": ["river/tags", "wlr/taskbar", "custom/pacman","river/layout", "idle_inhibitor", "river/window"], 
     "modules-left": ["river/tags", "wlr/taskbar", "custom/pacman","river/layout", "idle_inhibitor", "river/window"], 
-    //"modules-center": [],
+    //"modules-center": ["river/tags"],
     "modules-right": ["cpu", "memory", "network", "network#net2", "pulseaudio", "tray", "clock"],
 
 
@@ -21,7 +23,9 @@
           2147483652,
           2147483656,
           2147483664
-        ]
+        ],
+        "tag-labels" : ["", "", "", "", ""]  
+        //"tag-labels" : ["󰽥", "", "󰽢", "", "󰽧"]  
     },
 
     "wlr/taskbar": {
@@ -37,6 +41,7 @@
     },
 
     "river/window": {
+        "icon": false,
         "format": " {}",
         "align": 0,
         "min-length": 82,
