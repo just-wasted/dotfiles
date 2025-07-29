@@ -42,7 +42,7 @@
 
     "river/window": {
         "icon": false,
-        "format": " {}",
+        "format": "> {}",
         "align": 0,
         "min-length": 82,
         "max-length": 82,

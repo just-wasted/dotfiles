@@ -8,6 +8,7 @@
 !.config/foot/
 !.config/gammastep/
 !.config/nvim/
+!.config/helix/
 !.env
 !tools/
 !.gitignore

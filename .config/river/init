@@ -9,6 +9,7 @@
 # documentation.
 
 # https://wiki.archlinux.org/title/River#Screencasting
+# configure environment for screen casting
 
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
@@ -36,7 +37,9 @@ riverctl spawn 'wl-paste --type text --watch cliphist store' # Stores only text 
 
 riverctl spawn 'wl-paste --type image --watch cliphist store' # Stores only image data
 
-riverctl spawn /usr/bin/lxpolkit
+riverctl spawn usr/libexec/lxqt-policykit-agent
+# riverctl spawn /usr/bin/lxpolkit
+# riverctl spawn /usr/libexec/kf6/polkit-kde-authentication-agent-1 
 
 riverctl spawn dunst
 
