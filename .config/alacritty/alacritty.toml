@@ -1,3 +1,11 @@
-general.import = [
+
+[general]
+import = [
     "~/.config/alacritty/themes/themes/gruvbox_medium_dark.toml"
 ]
+
+[window]
+dimensions = { columns = 150, lines = 30 }
+
+[font]
+size = 14

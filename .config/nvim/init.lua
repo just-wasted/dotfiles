@@ -249,6 +249,18 @@ require("lazy").setup({
 		-- use opts = {} for passing setup options
 		-- this is equivalent to setup({}) function
 	},
+
+	{
+		"mfussenegger/nvim-dap",
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio",
+		},
+	},
+
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -1099,6 +1111,43 @@ require("lazy").setup({
 		},
 	},
 })
+
+local dap = require("dap")
+dap.adapters.codelldb = {
+	type = "executable",
+	command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
+
+	-- On windows you may have to uncomment this:
+	-- detached = false,
+}
+dap.configurations.cpp = {
+	{
+		name = "Launch file",
+		type = "codelldb",
+		request = "launch",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopOnEntry = false,
+	},
+}
+dap.configurations.c = dap.configurations.cpp
+
+require("dapui").setup()
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.before.attach.dapui_config = function()
+	dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+	dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+	dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+	dapui.close()
+end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

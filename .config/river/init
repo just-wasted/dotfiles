@@ -51,9 +51,9 @@ riverctl input pointer-11944-8707-Sharkoon_Technologies_GmbH_Sharkoon_Light2_200
 
 riverctl input pointer-11944-8707-Sharkoon_Technologies_GmbH_Sharkoon_Light2_200 pointer-accel -0.20
 
-riverctl map normal Super N spawn '$TERMINAL -e nvim'
+riverctl map normal Super N spawn 'foot -e nvim'
 
-riverctl map normal Super Q spawn '$TERMINAL'
+riverctl map normal Super Q spawn 'foot'
 
 riverctl map normal Super R spawn 'wofi --show drun --width=15% --height=200'
 
@@ -226,6 +226,7 @@ riverctl rule-add -title 'galculator' float
 riverctl rule-add -title 'TIPP10' float
 riverctl rule-add -title 'File Operation Progress' float
 riverctl rule-add -title 'Qalculate!' float
+riverctl rule-add -title 'X4' float
 
 # Make all views with app-id "bar" and any title use client-side decorations
 riverctl rule-add -app-id "bar" csd
