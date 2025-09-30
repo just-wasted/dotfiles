@@ -18,8 +18,8 @@ export PATH=$PATH:~/go/bin:~/.local/bin
 ############Prompt
 ##################
 # PROMPT='%F{#6a6a6a}%n@%F{#6a6a6a}%m%F{#1f7177} '$CONTAINER_ID' %f%B%~%b%F{#6a6a6a} > ' 
-PROMPT='%F{#1f7177}'$CONTAINER_ID' %f%B%(3~|.../%2~|%~)%b%F{#6a6a6a} > ' 
-RPROMPT='%f[%F{#1f7177}%?%f]'
+PROMPT='%F{#1f7177}'$CONTAINER_ID' %f%B%(2~|.../%1~|%~)%b%F{#6a6a6a} > ' 
+RPROMPT='%(1j.%j job(s).)%f[%F{#1f7177}%?%f]'
 
 ###########Aliases
 ##################
@@ -99,6 +99,8 @@ eval "$(zoxide init zsh)"
 
 
 # Begin: PlatformIO Core completion support
-eval "$(_PIO_COMPLETE=zsh_source pio)"
+if  [[ -z "${CONTAINER_ID}" ]] then
+	eval "$(_PIO_COMPLETE=zsh_source pio)"
+fi
 # End: PlatformIO Core completion support
 
