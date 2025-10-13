@@ -1,0 +1,306 @@
+* {
+    border: none;
+    border-radius: 0;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: JetBrains Mono Bold, sans-serif;
+    /*font-family: JetBrains Mono Bold, FontAwesome;*/
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    min-height: 8px;
+}
+
+window#waybar {
+    background: transparent;
+    /* background: #111111; */
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#tags {
+    margin-right: 8px;
+    /*border-radius: 10px 10px 10px 10px;*/
+    border-radius: 0px 0px 10px 10px;
+    transition: none;
+    background: #383c4a;
+}
+
+#tags button {
+    transition: none;
+    color: #7c818c;
+    background: transparent;
+    padding: 5px;
+    font-size: 8px;
+    border-radius: 10px 10px 10px 10px;
+    /*border-radius: inherit;*/
+}
+
+#tags button.occupied {
+    background: #4e5263;
+    /*color: #383c4a;*/
+    color: #7c818c;
+    border-radius: 10px 10px 10px 10px;
+    /*border-radius: inherit;*/
+}
+
+#tags button.focused {
+    transition: none;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    border-radius: 10px 10px 10px 10px;
+    /*border-radius: inherit;*/
+    color: #383c4a;
+    background: #7c818c;
+}
+
+#tags button.urgent {
+    background: #4e5263;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    /*border-radius: inherit;*/
+}
+
+
+#layout {
+    padding-right: 4px;
+    padding-left: 8px;
+    /*margin-right: -4px;*/
+    border-radius: 0px 0px 0px 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#window {
+    padding-left: 0px;
+    margin-left: 50px;
+}
+
+#idle_inhibitor {
+    padding-left: 2px;
+    padding-right: 12px;
+    border-radius: 0px 0px 10px 0px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#idle_inhibitor.activated {
+    padding-left: 2px;
+    padding-right: 12px;
+    border-radius: 0px 0px 10px 0px;
+    transition: none;
+    color: #2a5c45;
+    background: #90b1b1;
+}
+
+#custom-pacman {
+    /*margin-right: 8px;*/
+    /*padding-left: 16px;*/
+    /*padding-right: 8px;*/
+    /*border-radius: 10px 0px 0px 10px;*/
+    /*transition: none;*/
+    /*color: #c2c2c2;*/
+    /*background: #383c4a;*/
+    margin-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 0px 0px 10px 10px;
+    /*border-radius: 10px;*/
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#taskbar {
+    /*margin-right: 8px;*/
+    /*padding-left: 16px;*/
+    /*padding-right: 8px;*/
+    /*border-radius: 10px 0px 0px 10px;*/
+    /*transition: none;*/
+    /*color: #c2c2c2;*/
+    /*background: #383c4a;*/
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 4px;
+    border-radius: 0px 0px 10px 10px;
+    /*border-radius: 10px;*/
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#window {
+    padding-left: 8px;
+    font-size: 12px;
+    color: #c2c2c2;
+}
+
+#clock {
+    /*margin-right: 8px;*/
+    padding-left: 16px;
+    padding-right: 8px;
+    border-radius: 0px 0px 0px 10px;
+    /*border-radius: 10px;*/
+    /*border-radius: 10px 0px 0px 10px;*/
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+    font-weight: bold;
+}
+
+
+#custom-notification {
+    /*margin-right: 8px;*/
+    padding-right: 16px;
+    border-radius: 0px 0px 10px 0px;
+    /*border-radius: 10px;*/
+    /*border-radius: 10px 0px 0px 10px;*/
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+
+#privacy {
+    margin-right: 8px;
+    padding-right: 16px;
+    padding-left: 16px;
+    border-radius: 0px 0px 10px 10px;
+    transition: none;
+    color: #A94949;
+    background: #a2a2a2;
+    /* color: #90b1b1; */
+    /* background-color: #C04E4E; */
+}
+
+
+#custom-weather {
+    padding-right: 16px;
+    border-radius: 0px 10px 10px 0px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#net {
+    padding-left: 8px;
+    margin-right: 0px;
+    padding-right: 0px;
+    border-radius: 0px 0px 0px 10px;
+    /*border-radius: 10px;*/
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#disk {
+    margin-right: 8px;
+    padding-left: 0px;
+    padding-right: 16px;
+    border-radius: 0px 0px 10px 0px;
+    /*border-radius: 10px;*/
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#custom-diskread {
+    font-size: 10;
+}
+
+#custom-diskwrite {
+    font-size: 10;
+}
+
+#network.netup {
+    font-size: 10;
+}
+
+#network.netdown {
+    font-size: 10;
+}
+
+#pulseaudio-slider {
+    padding: 0;
+    margin: 0;
+}
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background-color: black;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background-color: #00D3D0;
+}
+
+#pulseaudio {
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 0px 0px 10px 10px;
+    /*border-radius: 10px;*/
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#cpu {
+    /*margin-right: 8px;*/
+    padding-left: 8px;
+    /*padding-right: 16px;*/
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+    /* font-family: JetBrainsMono Nerd Font Medium; */
+}
+
+#memory {
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 16px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 10px;
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+
+#tray {
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 0px 0px 10px 10px;
+    /*border-radius: 10px;*/
+    transition: none;
+    color: #c2c2c2;
+    background: #383c4a;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}

@@ -9,6 +9,7 @@
 !.config/gammastep/
 !.config/nvim/
 !.config/helix/
+!.config/niri/
 !.env
 !tools/
 !.gitignore

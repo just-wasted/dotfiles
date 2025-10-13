@@ -1,0 +1,8 @@
+theme = "tokynight_moontokynight_moon"
+[editor]
+cursorline = true
+true-color = true
+color-modes = true
+
+[editor.lsp]
+display-inlay-hints = true

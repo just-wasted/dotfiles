@@ -1,0 +1,288 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "margin": "-2 6 -2 6",
+    "height": 28,
+    //"margin": "0 13 -10 18",
+    // Choose the order of the modules
+    "modules-left": ["niri/workspaces", "wlr/taskbar", "custom/pacman", "idle_inhibitor", "niri/window"], 
+
+    "modules-center": ["clock", "custom/notification"],
+
+    "modules-right": ["privacy", "group/audio", "cpu", "memory", "group/net", "group/disk", "tray"],
+
+
+    //***************************
+    //*  Modules configuration  *
+    //***************************
+
+
+    "wlr/taskbar": {
+        "format": "{icon} ",
+        "icon-size": {},
+        //"icon-theme": "${besgnulinux-mono-grey}",
+        //"spacing": 9,
+        "sort-by-app-id": true,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "fullscreen"
+    },
+
+"niri/window": {
+	"format": "{}",
+        "max-length": 60,
+},
+    // "keyboard-state": {
+    //     //"numlock": true,
+    //     "device-path": "/dev/input/by-id/usb-04d9_USB-HID_Keyboard-event-kbd",
+    //     "capslock": true,
+    //     "format": "{icon} ",
+    //     "format-icons": {
+    //         "locked": "",
+    //         "unlocked": ""
+    //     },
+    // },
+
+    "custom/pacman": {
+        "format": "{} ",
+        "interval": 3600,                     			// every hour
+        "exec": "dnf check-upgrade | wc -l",	// # of updates
+        "tooltip": false,
+    },
+
+    "clock": {
+        "format": "{:L%a  %d. %B  %H:%M}",
+        "locale":"de_DE.utf8",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ffead3'><b>{}</b></span>",
+                              //"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{:%V}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{0} {icon}",
+    "format-icons": {
+      "notification": "<span foreground='teal'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='teal'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='teal'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='teal'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+
+    "privacy": {
+            "on-click": "swaync-client -t -sw",
+            "icon-spacing": 4,
+            "icon-size": 18,
+            "transition-duration": 250,
+            "modules": [
+                    {
+                            "type": "screenshare",
+                            "tooltip": true,
+                            "tooltip-icon-size": 24
+                    },
+                    {
+                            "type": "audio-in",
+                            "tooltip": true,
+                            "tooltip-icon-size": 24
+                    },
+                    {
+                            "type": "audio-out",
+                            "tooltip": true,
+                            "tooltip-icon-size": 24
+                    }
+            ],
+            "ignore-monitor": false,
+    },
+
+
+"group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 500,
+        // "children-class": "not-power",
+        "transition-left-to-right": false,
+    },
+    "modules": [
+        "pulseaudio", // First element is the "group leader" and won't ever be hidden
+        "pulseaudio/slider",
+    ]
+},
+
+
+"pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+},
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "reverse-scrolling": 1,
+        "format": "{volume}% {icon} {format_source}",
+        //"format-bluetooth": "{volume}% {icon} {format_source}",
+        //"format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "flatpak run com.saivert.pwvucontrol",
+        "min-length": 10,
+    },
+
+    "group/net": {
+        "orientation": "vertical",
+        "modules": [
+            "network#netup",
+            "network#netdown"
+        ]
+    },
+
+
+    "network#netup": {
+        "interval": 2,
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "<span font=\"JetBrainsMono Nerd Font Medium\">{bandwidthUpBits} </span>",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname}  ",
+        "tooltip-format-disconnected": "Disconnected",
+        "min-length": 12,
+        "align": 1,
+    },
+
+    "network#netdown": {
+        "interval": 2,
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "<span font=\"JetBrainsMono Nerd Font Medium\">{bandwidthDownBits} </span>",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname}  ",
+        "tooltip-format-disconnected": "Disconnected",
+        "min-length": 12,
+        "align": 1,
+    },
+
+
+    "group/disk": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/diskread",
+            "custom/diskwrite",
+        ]
+    },
+    
+    "custom/diskread": {
+        "format": "<span font=\"JetBrainsMono Nerd Font Medium\">{}</span>",
+        "exec": "~/.config/waybar/disk_rate_read.sh",
+        "tooltip": false,
+    },
+
+    "custom/diskwrite": {
+        "format": "<span font=\"JetBrainsMono Nerd Font Medium\">{}</span>",
+        "exec": "~/.config/waybar/disk_rate_write.sh",
+        "tooltip": false,
+    },
+
+    "memory": {
+        "format": "{used:3.2f} ",
+        "interval": 2,
+        //"exec": "free -h | awk '/Me333333333333333333        "tooltip": false,
+    },
+
+    // "cpu": {
+    //   "interval": 2,
+    //   "format": "{usage}% ", //
+    //   "min-length": 6
+    // },
+
+    "cpu": {
+        "max-length": 8,
+        "interval": 1,
+        "format": "<span font=\"JetBrainsMono Nerd Font Medium 14\"> {icon0}{icon2}{icon2}{icon3}</span>",
+        "format-icons": [
+              "<span color='#00E3DF'> </span>", 
+              "<span color='#00E3DF'>⢀</span>", //  U+2880  8
+              "<span color='#00E3DF'>⣀</span>", //  U+28C0  7,8
+              "<span color='#00E3DF'>⣠</span>", //  U+28E0  6,7,8
+              "<span color='#00E3DF'>⣤</span>", //  U+28E4  3,6,7,8
+              "<span color='#00E3DF'>⣴</span>", //  U+28F4  3,5,6,7,8
+              "<span color='#00E3DF'>⣶</span>", //  U+28F6  2,3,5,6,7,8
+              "<span color='#00E3DF'>⣾</span>", //  U+28FE  2,3,4,5,6,7,8
+              "<span color='#00E3DF'>⣿</span>"  //  U+28FF  1,2,3,4,5,6,7,8
+              // "<span color='#077E80'> </span>",
+              // "<span color='#077E80'>▁</span>",
+              // "<span color='#077E80'>▂</span>",
+              // "<span color='#077E80'>▃</span>",
+              // "<span color='#077E80'>▄</span>",
+              // "<span color='#077E80'>▅</span>",
+              // "<span color='#077E80'>▆</span>",
+              // "<span color='#077E80'>▇</span>",
+              // "<span color='#077E80'>█</span>"
+        ]
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false,
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 0
+    },
+
+    "idle_inhibitor": {
+        //"min-length": 3,
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "󰒲"
+        }
+    },
+}
