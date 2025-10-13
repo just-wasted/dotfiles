@@ -115,6 +115,7 @@ layout {
     // Set gaps around windows in logical pixels.
     gaps 12
 
+    background-color "transparent"
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
     //   or right edge of the screen.
@@ -352,6 +353,30 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
+
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+
+
+// Optionally, disable the workspace shadows in the overview.
+overview {
+    workspace-shadow {
+        off
+    }
+}
+
+// overview {
+//     backdrop-color "#777777"
+// }
+
+// layer-rule {
+//     match namespace="^wallpaper$"
+//     place-within-backdrop true
+// }
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
