@@ -11,6 +11,8 @@
 !.config/niri/
 !.config/nvim/
 !.config/river/
+!.config/swayidle/
+!.config/swaylock/
 !.config/systemd/
 .config/systemd/user/sockets.target.wants/
 !.config/waybar/
