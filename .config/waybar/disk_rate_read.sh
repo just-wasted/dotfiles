@@ -17,5 +17,5 @@ while true; do
 	sector_size=512
 
 	bps=$(((delta_sectors * sector_size / delta_time) * 1000))
-	echo "$(numfmt --to=si --padding=7 $bps)B/s"
+	echo "$(numfmt --to=si --padding=5 $bps)B/s"
 done

@@ -10,6 +10,8 @@
 !.config/nvim/
 !.config/helix/
 !.config/niri/
+!.config/systemd/
+.config/systemd/user/sockets.target.wants/
 !.env
 !tools/
 !.gitignore

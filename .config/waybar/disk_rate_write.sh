@@ -20,10 +20,10 @@ while true; do
 	page_size=4096
 
 	bps=$(((delta_pages * page_size / delta_time) * 1000))
-	echo "$(numfmt --to=si --padding=7 $bps)B/s"
+	echo "$(numfmt --to=si --padding=5 $bps)B/s"
 done
 
-###  below is for actualy data written, can vary greatly to the upper
+###  below is for actual blocks written, can vary greatly to the upper
 ###  because filesystem magic
 #
 # while true; do

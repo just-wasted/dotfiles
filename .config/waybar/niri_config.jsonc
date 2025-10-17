@@ -1,27 +1,33 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    // "margin": "-2 6 -2 6",
     "height": 28,
-    //"margin": "0 13 -10 18",
+
     // Choose the order of the modules
-    "modules-left": ["niri/workspaces", "wlr/taskbar", "custom/pacman", "idle_inhibitor", "niri/window"], 
+    "modules-left": ["niri/workspaces", "wlr/taskbar", "custom/packages", "systemd-failed-units", "niri/window"], 
 
-    "modules-center": ["clock", "custom/notification"],
+    "modules-center": ["clock", "custom/notification", "idle_inhibitor"],
 
-    "modules-right": ["privacy", "group/audio", "cpu", "memory", "group/net", "group/disk", "tray"],
+    "modules-right": ["privacy", "group/audio", "cpu", "temperature", "memory", "custom/netsymbol", "group/net", "group/disk", "custom/disksymbol", "tray", "custom/power"],
 
 
     //***************************
     //*  Modules configuration  *
     //***************************
 
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "focused": "󰽢",
+            "default": "󰄰",
+        }
+    },
 
     "wlr/taskbar": {
         "format": "{icon} ",
         "icon-size": {},
         //"icon-theme": "${besgnulinux-mono-grey}",
-        //"spacing": 9,
+        // "spacing": 9,
         "sort-by-app-id": true,
         "tooltip-format": "{title}",
         "on-click": "activate",
@@ -29,56 +35,55 @@
         "on-click-right": "fullscreen"
     },
 
-"niri/window": {
-	"format": "{}",
-        "max-length": 60,
-},
-    // "keyboard-state": {
-    //     //"numlock": true,
-    //     "device-path": "/dev/input/by-id/usb-04d9_USB-HID_Keyboard-event-kbd",
-    //     "capslock": true,
-    //     "format": "{icon} ",
-    //     "format-icons": {
-    //         "locked": "",
-    //         "unlocked": ""
-    //     },
-    // },
-
-    "custom/pacman": {
+    "custom/packages": {
         "format": "{} ",
-        "interval": 3600,                     			// every hour
-        "exec": "dnf check-upgrade | wc -l",	// # of updates
+        "interval": 3600,
+        "exec": "dnf check-upgrade | wc -l",
         "tooltip": false,
+    },
+
+    "systemd-failed-units": {
+            "interval": 900,
+            "hide-on-ok": false,
+            "format": "<span color='#A94949'><b>✗</b></span> {nr_failed}",
+            "format-ok": "<span color='#00E3DF'><b>✓</b></span>",
+            "system": true,
+            "user": true,
+    },
+
+    "niri/window": {
+            "format": "{}",
+            "max-length": 60,
     },
 
     "clock": {
         "format": "{:L%a  %d. %B  %H:%M}",
         "locale":"de_DE.utf8",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
         "calendar": {
                     "mode"          : "month",
                     "mode-mon-col"  : 3,
                     "weeks-pos"     : "right",
                     "on-scroll"     : 1,
                     "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "months":     "<span color='#c2c2c2'><b>{}</b></span>",
                               "days":       "<span color='#ffead3'><b>{}</b></span>",
-                              //"days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weeks":      "<span color='#99ffdd'><b>W{:%V}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              "days":       "<span color='#a2a2a2'><b>{}</b></span>",
+                              "weeks":      "<span color='#229292'><b>W{:%V}</b></span>",
+                              "weekdays":   "<span color='#525252'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b>{}</b></span>"
                               }
                     },
         "actions":  {
                     "on-click-right": "mode",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
+                    "on-scroll-down": "shift_up",
+                    "on-scroll-up": "shift_down"
                     }
     },
 
   "custom/notification": {
     "tooltip": false,
-    "format": "{0} {icon}",
+    "format": " {0} {icon}",
     "format-icons": {
       "notification": "<span foreground='teal'><sup></sup></span>",
       "none": "",
@@ -95,7 +100,7 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
-  },
+    },
 
 
     "privacy": {
@@ -113,6 +118,7 @@
                             "type": "audio-in",
                             "tooltip": true,
                             "tooltip-icon-size": 24
+
                     },
                     {
                             "type": "audio-out",
@@ -124,46 +130,48 @@
     },
 
 
-"group/audio": {
-    "orientation": "inherit",
-    "drawer": {
-        "transition-duration": 500,
-        // "children-class": "not-power",
-        "transition-left-to-right": false,
+    "group/audio": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "pulseaudio", // First element is the "group leader" and won't ever be hidden
+            "pulseaudio/slider",
+            "custom/togglesink",
+        ]
     },
-    "modules": [
-        "pulseaudio", // First element is the "group leader" and won't ever be hidden
-        "pulseaudio/slider",
-    ]
-},
 
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+    },
 
-"pulseaudio/slider": {
-    "min": 0,
-    "max": 100,
-    "orientation": "horizontal",
-},
+    "custom/togglesink": {
+            "format": "󱞸",
+            "on-click": "~/.config/waybar/togglesink.sh",
+            "tooltip-format": "Toggle Audio Sink",
+    },
 
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "reverse-scrolling": 1,
-        "format": "{volume}% {icon} {format_source}",
-        //"format-bluetooth": "{volume}% {icon} {format_source}",
-        //"format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format": "<span font=\"JetBrainsMono Nerd Font Medium\">{icon}  {format_source}</span>",
+        "format-muted": "<span font=\"JetBrainsMono Nerd Font Medium\">  {format_source}</span>",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "alsa_output.pci-0000_00_1f.3.analog-stereo": "󰋋",
+            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "󰟎",
+            "default": ["", "", "󰕾", ""]
         },
+        "scroll-step": 1,
         "on-click": "flatpak run com.saivert.pwvucontrol",
-        "min-length": 10,
+    },
+
+    "custom/netsymbol": {
+        "format":"<span font=\"JetBrainsMono Nerd Font Medium 14\">󰲝</span>",
+        "tooltip": false
     },
 
     "group/net": {
@@ -174,27 +182,22 @@
         ]
     },
 
-
     "network#netup": {
         "interval": 2,
-        "format": "{ifname}",
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "<span font=\"JetBrainsMono Nerd Font Medium\">{bandwidthUpBits} </span>",
-        "format-disconnected": "", //An empty format will hide the module.
+        "format": "<span font=\"JetBrainsMono Nerd Font Medium\">{bandwidthUpBits} </span>",
+        "format-disconnected": "", 
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname}  ",
         "tooltip-format-disconnected": "Disconnected",
-        "min-length": 12,
+        "min-length": 11,
         "align": 1,
     },
 
     "network#netdown": {
         "interval": 2,
-        "format": "{ifname}",
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "<span font=\"JetBrainsMono Nerd Font Medium\">{bandwidthDownBits} </span>",
-        "format-disconnected": "", //An empty format will hide the module.
+        "format": "<span font=\"JetBrainsMono Nerd Font Medium\">{bandwidthDownBits} </span>",
+        "format-disconnected": "", 
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
         "tooltip-format-ethernet": "{ifname}  ",
@@ -203,6 +206,9 @@
         "align": 1,
     },
 
+    "custom/disksymbol": {
+        "format": "",
+    },
 
     "group/disk": {
         "orientation": "vertical",
@@ -211,7 +217,7 @@
             "custom/diskwrite",
         ]
     },
-    
+
     "custom/diskread": {
         "format": "<span font=\"JetBrainsMono Nerd Font Medium\">{}</span>",
         "exec": "~/.config/waybar/disk_rate_read.sh",
@@ -227,14 +233,7 @@
     "memory": {
         "format": "{used:3.2f} ",
         "interval": 2,
-        //"exec": "free -h | awk '/Me333333333333333333        "tooltip": false,
     },
-
-    // "cpu": {
-    //   "interval": 2,
-    //   "format": "{usage}% ", //
-    //   "min-length": 6
-    // },
 
     "cpu": {
         "max-length": 8,
@@ -263,13 +262,19 @@
     },
 
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "interval": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", "", "", ""],
-        "tooltip": false,
+        "format-critical": "{icon} {temperatureC}°C",
+        "format": "<span font=\"JetBrainsMono Nerd Font Medium 16\">{icon}</span>",
+        "format-icons": [
+            "", 
+            "", 
+            "", 
+            "", 
+            ""
+        ],
+        "tooltip": true,
     },
 
     "tray": {
@@ -278,11 +283,25 @@
     },
 
     "idle_inhibitor": {
-        //"min-length": 3,
         "format": "{icon}",
         "format-icons": {
             "activated": "",
             "deactivated": "󰒲"
         }
     },
+
+    "custom/power": {
+        "format" : "<span font=\"JetBrainsMono Nerd Font Medium 16\"> </span>",
+            "tooltip": false,
+            "menu": "on-click",
+            "menu-file": "~/.config/waybar/power_menu.xml",
+            "menu-actions": {
+                "locksession": "swaylock -C ~/.config/swaylock/config",
+                "logout": "niri msg action quit",
+                "poweroff": "systemctl poweroff",
+                "reboot": "systemctl reboot",
+                "suspend": "systemctl suspend",
+            },
+    },
+
 }
