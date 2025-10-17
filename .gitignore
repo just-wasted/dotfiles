@@ -3,6 +3,7 @@
 .config/*
 !.config/alacritty/
 !.config/foot/
+!.config/fuzzel
 !.config/gammastep/
 !.config/gtk-3.0/
 .config/gtk-3.0/bookmarks
@@ -16,6 +17,7 @@
 !.config/systemd/
 .config/systemd/user/sockets.target.wants/
 !.config/waybar/
+!.config/wallpaper/
 !.config/wofi/
 !.env
 !.gitignore

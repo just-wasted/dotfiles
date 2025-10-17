@@ -1,6 +1,10 @@
 daemonize
 ignore-empty-password
-image=~/pics/wp_blur.jpg
+hide-keyboard-layout
+image=~/.config/wallpaper/wp_blur.jpg
 ring-color=119B94
-bs-hl-color=c2c2c2
 inside-color=ffffff00
+inside-clear-color=ffffff00
+inside-ver-color=ffffff00
+key-hl-color=00000068
+indicator-thickness=16

@@ -273,11 +273,11 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-sh-at-startup "waybar -c /home/wasted/.config/waybar/niri_config.jsonc -s /home/wasted/.config/waybar/niri_style.css"
 spawn-at-startup "swaync"
-spawn-sh-at-startup "swaybg --image /home/wasted/pics/wp_blur.jpg"
+spawn-sh-at-startup "swaybg --image ~/.config/wallpaper/wp_blur.jpg"
 spawn-sh-at-startup "/home/wasted/.local/bin/swww-daemon -n lolpaper" 
-spawn-sh-at-startup "/home/wasted/.local/bin/swww img pics/wp.jpg -n lolpaper" 
+spawn-sh-at-startup "/home/wasted/.local/bin/swww img ~/.config/wallpaper/wp.jpg -n lolpaper" 
 spawn-sh-at-startup "gammastep-indicator -c /home/wasted/.config/gammastep/gammastep.conf"
-spawn-sh-at-startup "/home/wasted/.config/niri/idle.sh"
+// spawn-sh-at-startup "~/.config/niri/idle.sh"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
