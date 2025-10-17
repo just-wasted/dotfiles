@@ -59,7 +59,8 @@
     "clock": {
         "format": "{:L%a  %d. %B  %H:%M}",
         "locale":"de_DE.utf8",
-        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "tooltip-format": "<span size='12pt'><tt><big>{calendar}</big></tt></span>",
+        // "tooltip-format": "<tt><big>{calendar}</big></tt>",
         "calendar": {
                     "mode"          : "month",
                     "mode-mon-col"  : 3,
