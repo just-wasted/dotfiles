@@ -273,6 +273,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-sh-at-startup "waybar -c /home/wasted/.config/waybar/niri_config.jsonc -s /home/wasted/.config/waybar/niri_style.css"
 spawn-at-startup "swaync"
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-sh-at-startup "swaybg --image ~/.config/wallpaper/wp_blur.jpg"
 spawn-sh-at-startup "/home/wasted/.local/bin/swww-daemon -n lolpaper" 
 spawn-sh-at-startup "/home/wasted/.local/bin/swww img ~/.config/wallpaper/wp.jpg -n lolpaper" 
