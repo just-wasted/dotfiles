@@ -37,7 +37,7 @@
 
     "custom/packages": {
         "format": "{} ",
-        "interval": 3600,
+        "interval": 1200,
         "exec": "dnf check-upgrade | wc -l",
         "tooltip": false,
     },
