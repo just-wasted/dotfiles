@@ -24,10 +24,10 @@
     },
 
     "wlr/taskbar": {
-        "format": "{icon} ",
-        "icon-size": {},
-        //"icon-theme": "${besgnulinux-mono-grey}",
-        // "spacing": 9,
+        "format": " {icon} ",
+        "icon-size": 20,
+        "icon-theme": "besgnulinux-mono-grey",
+        // "spacing": 10,
         "sort-by-app-id": true,
         "tooltip-format": "{title}",
         "on-click": "activate",
@@ -43,9 +43,9 @@
     },
 
     "systemd-failed-units": {
-            "interval": 900,
+            "interval": 300,
             "hide-on-ok": false,
-            "format": "<span color='#A94949'><b>✗</b></span> {nr_failed}",
+            "format": "<span color='#A94949'><b>✗</b></span> {nr_failed_system} system, {nr_failed_user} user",
             "format-ok": "<span color='#00E3DF'><b>✓</b></span>",
             "system": true,
             "user": true,
@@ -209,6 +209,7 @@
 
     "custom/disksymbol": {
         "format": "",
+        "tootip": false
     },
 
     "group/disk": {
@@ -280,7 +281,7 @@
 
     "tray": {
         "icon-size": 16,
-        "spacing": 0
+        "spacing": 4,
     },
 
     "idle_inhibitor": {

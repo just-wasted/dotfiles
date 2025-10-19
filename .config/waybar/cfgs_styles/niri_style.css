@@ -8,6 +8,12 @@
     min-height: 8px;
 }
 
+
+    /* #c2c2c2 #7c818c #A2A7B6 #EBDBB2 */
+@define-color fg #A2A7B6;
+    /* #3c3836 #383c4a #385c6a*/
+@define-color bg #383c4a;
+
 window#waybar {
     background: transparent;
     /* background: rgba(56, 60, 74, 0.4); */
@@ -25,7 +31,7 @@ tooltip {
 }
 
 tooltip label {
-    color: #c2c2c2;
+    color: @fg;
     font-size: 20px;
     padding: 8px;
 }
@@ -37,13 +43,23 @@ tooltip label {
     padding-left: 4px;
     border-radius: 0px 0px 10px 0px;
     transition: none;
-    background: #383c4a;
+    background: @bg;
 }
 
-#workspaces  button {
+#workspaces button {
     transition: none;
-    color: #7c818c;
+    color: @fg;
+    /* color: #c2c2c2; */
     background: transparent;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#workspaces button:hover {
+    transition: none;
+    /* color: inhirit; */
+    background: #4A4F62;
     padding-left: 4px;
     padding-right: 4px;
     border-radius: 10px 10px 10px 10px;
@@ -51,12 +67,30 @@ tooltip label {
 
 #taskbar {
     margin-right: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
     border-radius: 0px 0px 10px 10px;
     transition: none;
     color: #c2c2c2;
-    background: #383c4a;
+    background: @bg;
+}
+
+#taskbar button {
+    transition: none;
+    color: @fg;
+    background: transparent;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#taskbar button:hover {
+    transition: none;
+    color: @fg;
+    background: #4A4F62;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 10px 10px 10px 10px;
 }
 
 #custom-packages {
@@ -65,8 +99,9 @@ tooltip label {
     padding-right: 8px;
     border-radius: 0px 0px 0px 10px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    /* color: #c2c2c2; */
+    color: @fg;
+    background: @bg;
 }
 
 #systemd-failed-units {
@@ -75,8 +110,9 @@ tooltip label {
     padding-right: 8px;
     border-radius: 0px 0px 10px 0px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    /* color: #c2c2c2; */
+    color: @fg;
+    background: @bg;
 }
 
 #window {
@@ -87,7 +123,8 @@ tooltip label {
 #window {
     padding-left: 8px;
     font-size: 12px;
-    color: #c2c2c2;
+    /* color: #c2c2c2; */
+    color: @fg;
 }
 
 #clock {
@@ -95,8 +132,8 @@ tooltip label {
     padding-right: 8px;
     border-radius: 0px 0px 0px 10px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
     font-weight: bold;
 }
 
@@ -104,8 +141,8 @@ tooltip label {
     padding-right: 8px;
     border-radius: 0px 0px 0px 0px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #idle_inhibitor {
@@ -113,8 +150,8 @@ tooltip label {
     padding-right: 16px;
     border-radius: 0px 0px 10px 0px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #idle_inhibitor.activated {
@@ -154,7 +191,7 @@ tooltip label {
     min-height: 10px;
     min-width: 80px;
     border-radius: 5px;
-    background-color: black;
+    background-color: @bg;
 }
 
 #pulseaudio-slider highlight {
@@ -164,8 +201,9 @@ tooltip label {
 }
 
 #custom-togglesink {
-   padding-left: 10px; 
-   padding-right: 10px;
+    padding-left: 10px; 
+    padding-right: 10px;
+    color: @fg;
 }
 
 #pulseaudio {
@@ -174,8 +212,8 @@ tooltip label {
     padding-right: 14px;
     border-radius: 0px 0px 10px 10px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #pulseaudio.muted {
@@ -187,15 +225,15 @@ tooltip label {
     padding-left: 12px;
     border-bottom-left-radius: 10px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #temperature {
     padding-left: 8px;
     transition: none;
-    color: #b2b2b2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #memory {
@@ -205,8 +243,8 @@ tooltip label {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 10px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #custom-netsymbol {
@@ -215,8 +253,8 @@ tooltip label {
     padding-right: 5px;
     border-radius: 0px 0px 0px 10px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #net {
@@ -225,8 +263,8 @@ tooltip label {
     padding-right: 2px;
     border-radius: 0px 0px 0px 0px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #network.netup {
@@ -244,8 +282,8 @@ tooltip label {
     padding-right: 8px;
     border-radius: 0px 0px 0px 0px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #custom-diskread {
@@ -262,8 +300,8 @@ tooltip label {
     padding-right: 16px;
     border-radius: 0px 0px 10px 0px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #tray {
@@ -272,8 +310,8 @@ tooltip label {
     padding-right: 8px;
     border-radius: 0px 0px 10px 10px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 #custom-power {
@@ -282,19 +320,20 @@ tooltip label {
     padding-right: 8px;
     border-radius: 0px 0px 0px 10px;
     transition: none;
-    color: #c2c2c2;
-    background: #383c4a;
+    color: @fg;
+    background: @bg;
 }
 
 menu {
     border-radius: 16px;
     background: rgba(36, 41, 52, 0.9);
-    color: #c2c2c2;
+    color: @fg;
     border: 2px solid rgba(100, 114, 125, 1.0);
 }
+
 menuitem {
     border-radius: 8px;
-    padding: 4px;
+    padding: 8px;
 }
 
 menu menuitem:hover {

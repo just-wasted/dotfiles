@@ -12,6 +12,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+setopt -o sharehistory
 ############ENVIRONMENT
 export $(envsubst < '/home/wasted/.env')
 export PATH=$PATH:~/go/bin:~/.local/bin

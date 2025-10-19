@@ -276,7 +276,7 @@ spawn-at-startup "swaync"
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-sh-at-startup "swaybg --image ~/.config/wallpaper/wp_blur.jpg"
 spawn-sh-at-startup "/home/wasted/.local/bin/swww-daemon -n lolpaper" 
-spawn-sh-at-startup "/home/wasted/.local/bin/swww img ~/.config/wallpaper/wp.jpg -n lolpaper" 
+spawn-sh-at-startup "sleep 1 && /home/wasted/.local/bin/swww img ~/.config/wallpaper/wp.jpg -n lolpaper" 
 spawn-sh-at-startup "gammastep-indicator -c /home/wasted/.config/gammastep/gammastep.conf"
 // spawn-sh-at-startup "~/.config/niri/idle.sh"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -330,6 +330,7 @@ window-rule {
     match app-id=r#"firefox$"# title="^Bild-im-Bild$"
     match app-id=r#"pwvucontrol$"# 
     match app-id=r#"Calculator$"# 
+    match app-id=r#"eyedropper$"# 
     open-floating true
 }
 
