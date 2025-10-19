@@ -152,7 +152,7 @@
 
     "custom/togglesink": {
             "format": "󱞸",
-            "on-click": "~/.config/waybar/togglesink.sh",
+            "on-click": "~/scripts/waybar-modules/togglesink.sh",
             "tooltip-format": "Toggle Audio Sink",
     },
 
@@ -222,13 +222,13 @@
 
     "custom/diskread": {
         "format": "<span font=\"JetBrainsMono Nerd Font Medium\">{}</span>",
-        "exec": "~/.config/waybar/disk_rate_read.sh",
+        "exec": "~/scripts/waybar-modules/disk_rate_read.sh",
         "tooltip": false,
     },
 
     "custom/diskwrite": {
         "format": "<span font=\"JetBrainsMono Nerd Font Medium\">{}</span>",
-        "exec": "~/.config/waybar/disk_rate_write.sh",
+        "exec": "~/scripts/waybar-modules/disk_rate_write.sh",
         "tooltip": false,
     },
 
