@@ -49,7 +49,6 @@ tooltip label {
 #workspaces button {
     transition: none;
     color: @fg;
-    /* color: #c2c2c2; */
     background: transparent;
     padding-left: 4px;
     padding-right: 4px;
@@ -58,7 +57,6 @@ tooltip label {
 
 #workspaces button:hover {
     transition: none;
-    /* color: inhirit; */
     background: #4A4F62;
     padding-left: 4px;
     padding-right: 4px;
@@ -99,7 +97,6 @@ tooltip label {
     padding-right: 8px;
     border-radius: 0px 0px 0px 10px;
     transition: none;
-    /* color: #c2c2c2; */
     color: @fg;
     background: @bg;
 }
@@ -110,20 +107,14 @@ tooltip label {
     padding-right: 8px;
     border-radius: 0px 0px 10px 0px;
     transition: none;
-    /* color: #c2c2c2; */
     color: @fg;
     background: @bg;
 }
 
 #window {
-    padding-left: 0px;
-    margin-left: 30px;
-}
-
-#window {
     padding-left: 8px;
+    margin-left: 30px;
     font-size: 12px;
-    /* color: #c2c2c2; */
     color: @fg;
 }
 
