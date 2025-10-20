@@ -1,6 +1,8 @@
 /*
 !.config/
 .config/*
+!.config/niri-xdg-terminals.list
+!.config/xdg-terminals.list
 !.config/alacritty/
 !.config/foot/
 !.config/fuzzel

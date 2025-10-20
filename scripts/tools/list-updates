@@ -1,4 +1,4 @@
 #!/bin/bash
 
 #(checkupdates;pacman -Qm | aur vercmp) | wofi --dmenu 
-dnf check-upgrade | wofi --dmenu 
+dnf check-upgrade | fuzzel --dmenu 
