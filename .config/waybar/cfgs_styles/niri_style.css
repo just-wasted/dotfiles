@@ -113,7 +113,7 @@ tooltip label {
 
 #window {
     padding-left: 8px;
-    margin-left: 30px;
+    margin-left: 16px;
     font-size: 12px;
     color: @fg;
 }

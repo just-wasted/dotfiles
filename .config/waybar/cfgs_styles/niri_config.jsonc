@@ -38,8 +38,9 @@
     "custom/packages": {
         "format": "{} ",
         "interval": 1200,
-        "exec": "dnf check-upgrade | wc -l",
-        "tooltip": false,
+        "exec": "dnf check-upgrade --refresh | wc -l",
+        "tooltip": true,
+        "tooltip-format": "lol"
     },
 
     "systemd-failed-units": {
@@ -162,8 +163,10 @@
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
-            "alsa_output.pci-0000_00_1f.3.analog-stereo": "󰋋",
-            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "󰟎",
+            // "alsa_output.pci-0000_00_1f.3.analog-stereo": "󰋋",
+            // "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "󰟎",
+            "alsa_output.pci-0000_00_1f.3.stereo-fallback": "󰋋",
+            "alsa_output.pci-0000_00_1f.3.stereo-fallback-muted": "󰟎",
             "default": ["", "", "󰕾", ""]
         },
         "scroll-step": 1,
@@ -209,7 +212,7 @@
 
     "custom/disksymbol": {
         "format": "",
-        "tootip": false
+        "tooltip": false
     },
 
     "group/disk": {

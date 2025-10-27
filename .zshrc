@@ -14,7 +14,10 @@ compinit
 
 setopt -o sharehistory
 ############ENVIRONMENT
-export $(envsubst < '/home/wasted/.env')
+if  [[ -z "${CONTAINER_ID}" ]] then
+	export $(envsubst < '/home/wasted/.env')
+fi
+# export $(envsubst < '/home/wasted/.env')
 export PATH=$PATH:~/go/bin:~/.local/bin
 ############Prompt
 ##################
