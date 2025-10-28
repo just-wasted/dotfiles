@@ -3,7 +3,6 @@ function LineNumberColors()
 	vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6181a1", bold = false })
 	vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#6181a1", bold = false })
 end
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -76,7 +75,7 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- set .h files als c headers, not cpp
+-- set .h files as c headers, not cpp
 vim.g.c_syntax_for_h = 1
 
 vim.keymap.del("n", "gO")
@@ -91,8 +90,8 @@ vim.keymap.set("n", "<leader>T", ":tabnew<CR>")
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist, { desc = "Open diagnostic [Q]uickfix list" })
-vim.keymap.set("n", "<leader>c", ":cclose<CR>", { desc = "[C]lose Quickfix list" })
+vim.keymap.set("n", "<leader>qq", vim.diagnostic.setqflist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>qc", ":cclose<CR>", { desc = "[C]lose Quickfix list" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -176,7 +175,11 @@ require("lazy").setup({
 		-- use opts = {} for passing setup options
 		-- this is equivalent to setup({}) function
 	},
-
+	{
+		"Aasim-A/scrollEOF.nvim",
+		event = { "CursorMoved", "WinScrolled" },
+		opts = {},
+	},
 	{
 		"mfussenegger/nvim-dap",
 	},
@@ -286,6 +289,7 @@ require("lazy").setup({
 				{ "<leader>w", group = "[W]orkspace" },
 				{ "<leader>t", group = "[T]oggle" },
 				{ "<leader>g", group = "[G]it", mode = { "n", "v" } },
+				{ "<leader>q", group = "[Q]uickfix" },
 			},
 		},
 	},
@@ -898,7 +902,8 @@ require("lazy").setup({
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
-			require("mini.indentscope").setup()
+			require("mini.indentscope").setup({ symbol = "│" })
+			-- require("mini.indentscope").setup({ symbol = "╎" })
 
 			require("mini.starter").setup()
 
@@ -1044,6 +1049,9 @@ end
 dap.listeners.before.event_exited.dapui_config = function()
 	dapui.close()
 end
+
+-- vim.cmd.highlight("MiniIndentScopeSymbol guifg=#383C4A")
+vim.cmd.highlight("MiniIndentScopeSymbol guifg=#6181a1")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -8,8 +8,9 @@
 
     "modules-center": ["clock", "custom/notification", "idle_inhibitor"],
 
-    "modules-right": ["privacy", "group/audio", "cpu", "temperature", "memory", "custom/netsymbol", "group/net", "group/disk", "custom/disksymbol", "tray", "custom/power"],
+    "modules-right": ["privacy", "group/audio", "cpu", "temperature", "memory", "tray", "custom/power"],
 
+    // "modules-right": ["privacy", "group/audio", "cpu", "temperature", "memory", "custom/netsymbol", "group/net", "group/disk", "custom/disksymbol", "tray", "custom/power"],
 
     //***************************
     //*  Modules configuration  *
@@ -39,8 +40,8 @@
         "format": "{} ",
         "interval": 1200,
         "exec": "dnf check-upgrade --refresh | wc -l",
-        "tooltip": true,
-        "tooltip-format": "lol"
+        "tooltip": false,
+        "on-click": "~/scripts/tools/list-updates",
     },
 
     "systemd-failed-units": {
