@@ -16,6 +16,7 @@
 !.config/river/
 !.config/swayidle/
 !.config/swaylock/
+!.config/swaync/
 !.config/systemd/
 .config/systemd/user/sockets.target.wants/
 !.config/waybar/

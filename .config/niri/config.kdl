@@ -330,6 +330,16 @@ window-rule {
     default-column-width { proportion 1.0; }
 }
 
+workspace "1"
+workspace "2"
+
+window-rule {
+    match app-id=r#"steam$"#
+    match app-id=r#"discord$"#
+    
+    open-on-workspace "2"
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
@@ -350,6 +360,11 @@ window-rule {
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
+}
+layer-rule {
+    match namespace="swaync"
+
+    block-out-from "screencast"
 }
 
 // Example: enable rounded corners for all windows.
