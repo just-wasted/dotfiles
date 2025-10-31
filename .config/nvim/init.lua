@@ -1,3 +1,7 @@
+---------------------------------------------------------------------
+-- Based on kickstart.nvim https://github.com/nvim-lua/kickstart.nvim
+---------------------------------------------------------------------
+--
 -- Sets colors to line numbers Above, Current and Below  in this order
 function LineNumberColors()
 	vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#6181a1", bold = false })

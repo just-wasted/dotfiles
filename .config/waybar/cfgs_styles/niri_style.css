@@ -154,6 +154,11 @@ tooltip label {
     background: #90b1b1;
 }
 
+#mpris {
+    margin-right: 24px;
+    color: @fg;
+}
+
 #privacy {
     margin-right: 8px;
     padding-right: 16px;
