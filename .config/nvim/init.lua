@@ -89,6 +89,7 @@ vim.keymap.set("n", "<leader>o", "o<Esc>")
 vim.keymap.set("n", "<leader>O", "O<Esc>")
 vim.keymap.set("n", "<leader>n", ":Neotree<CR>")
 vim.keymap.set("n", "<leader>T", ":tabnew<CR>")
+vim.keymap.set("n", "<leader>st", ":TodoQuickFix<CR>", { desc = "[T]odo-comments in [Q]ickfix List" })
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -356,7 +357,7 @@ require("lazy").setup({
 								"fd",
 								"--hidden",
 								"--exclude",
-								"mydoc/",
+								"Documents/",
 								"--exclude",
 								".git/",
 								"--exclude",
@@ -886,7 +887,7 @@ require("lazy").setup({
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
+		opts = { signs = true },
 	},
 
 	{ -- Collection of various small independent plugins/modules
