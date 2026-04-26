@@ -18,7 +18,7 @@ if  [[ -z "${CONTAINER_ID}" ]] then
 	export $(envsubst < '/home/wasted/.env')
 fi
 # export $(envsubst < '/home/wasted/.env')
-export PATH=$PATH:~/go/bin:~/.local/bin
+export PATH=$PATH:~/go/bin:~/.local/bin:~/.dotnet/tools/
 ############Prompt
 ##################
 # PROMPT='%F{#6a6a6a}%n@%F{#6a6a6a}%m%F{#1f7177} '$CONTAINER_ID' %f%B%~%b%F{#6a6a6a} > ' 

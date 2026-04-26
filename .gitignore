@@ -11,8 +11,8 @@
 .config/gtk-3.0/bookmarks
 !.config/gtk-4.0/
 !.config/helix/
+.config/helix/runtime
 !.config/niri/
-!.config/nvim/
 !.config/river/
 !.config/swayidle/
 !.config/swaylock/
@@ -24,6 +24,6 @@
 !.config/wofi/
 !.env
 !.gitignore
-!tools/
+!scripts/
 !.tmux.conf
 !.zshrc
