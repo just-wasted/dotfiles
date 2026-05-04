@@ -1,11 +1,14 @@
-/*
+*
 !.config/
 .config/*
 !.config/niri-xdg-terminals.list
 !.config/xdg-terminals.list
 !.config/alacritty/
 !.config/foot/
+!.config/awesome/
+!.config/awesome/**
 !.config/fuzzel
+!.config/noctalia
 !.config/gammastep/
 !.config/gtk-3.0/
 .config/gtk-3.0/bookmarks

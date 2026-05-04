@@ -103,8 +103,8 @@ eval "$(zoxide init zsh)"
 
 
 # Begin: PlatformIO Core completion support
-if  [[ -z "${CONTAINER_ID}" ]] then
-	eval "$(_PIO_COMPLETE=zsh_source pio)"
-fi
+#if  [[ -z "${CONTAINER_ID}" ]] then
+#	eval "$(_PIO_COMPLETE=zsh_source pio)"
+#fi
 # End: PlatformIO Core completion support
 

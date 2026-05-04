@@ -267,7 +267,7 @@ layout {
         left 4
         right 4
         top -2
-        bottom 0
+        bottom -4
     }
 }
 
@@ -280,9 +280,9 @@ layout {
 // spawn-sh-at-startup "waybar -c /home/wasted/.config/waybar/niri_config.jsonc -s /home/wasted/.config/waybar/niri_style.css"
 // spawn-at-startup "swaync"
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
-spawn-sh-at-startup "swaybg --image ~/.config/wallpaper/wp_blur.jpg"
-spawn-sh-at-startup "/home/wasted/.local/bin/swww-daemon -n lolpaper" 
-spawn-sh-at-startup "sleep 1 && /home/wasted/.local/bin/swww img ~/.config/wallpaper/wp.jpg -n lolpaper" 
+// spawn-sh-at-startup "swaybg --image ~/.config/wallpaper/wp_blur.jpg"
+// spawn-sh-at-startup "/home/wasted/.local/bin/swww-daemon -n lolpaper" 
+// spawn-sh-at-startup "sleep 1 && /home/wasted/.local/bin/swww img ~/.config/wallpaper/wp.jpg -n lolpaper" 
 spawn-sh-at-startup "gammastep-indicator -c /home/wasted/.config/gammastep/gammastep.conf"
 // spawn-sh-at-startup "~/.config/niri/idle.sh"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -379,11 +379,17 @@ window-rule {
     clip-to-geometry true
 }
 
+// layer-rule {
+//     // This is for swaybg; change for other wallpaper tools.
+//     // Find the right namespace by running niri msg layers.
+//     match namespace="^wallpaper$"
+//     place-within-backdrop true
+// }
+
+// Set the overview wallpaper on the backdrop.
 layer-rule {
-    // This is for swaybg; change for other wallpaper tools.
-    // Find the right namespace by running niri msg layers.
-    match namespace="^wallpaper$"
-    place-within-backdrop true
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
 }
 
 
@@ -415,13 +421,14 @@ binds {
     Super+E hotkey-overlay-title="Open a File Manager: Nautilus" { spawn "nautilus"; }
     Super+Q hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Super+R hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Super+Y hotkey-overlay-title="Clipboard" { spawn-sh "qs -c noctalia-shell ipc call plugin:clipboard toggle"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
 
     XF86Calculator hotkey-overlay-title="Calculator" { spawn "gnome-calculator"; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -662,3 +669,5 @@ binds {
     // moving the mouse or pressing any other key.
     // Mod+Shift+P { power-off-monitors; }
 }
+
+spawn-at-startup "env" "QT_QPA_PLATFORMTHEME=gtk3" "qs" "-c" "noctalia-shell"

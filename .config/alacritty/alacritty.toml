@@ -1,4 +1,3 @@
-
 [general]
 import = [
     "~/.config/alacritty/themes/themes/gruvbox_medium_dark.toml"
@@ -9,3 +8,7 @@ dimensions = { columns = 150, lines = 30 }
 
 [font]
 size = 14
+
+[terminal]
+
+shell = { program = "zsh", args = [] }
