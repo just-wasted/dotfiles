@@ -60,7 +60,7 @@ editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Autorun programs
-awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+-- awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 -- autorun = false
 -- autorunApps =
 -- {
@@ -86,16 +86,16 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
 	awful.layout.suit.tile,
-	awful.layout.suit.fair,
+	-- awful.layout.suit.fair,
 	awful.layout.suit.floating,
-	awful.layout.suit.max,
+	-- awful.layout.suit.max,
 	-- awful.layout.suit.tile.left,
 	-- awful.layout.suit.tile.bottom,
 	-- awful.layout.suit.tile.top,
 	-- awful.layout.suit.fair.horizontal,
 	-- awful.layout.suit.spiral,
 	-- awful.layout.suit.spiral.dwindle,
-	awful.layout.suit.max.fullscreen,
+	-- awful.layout.suit.max.fullscreen,
 	-- awful.layout.suit.magnifier,
 	-- awful.layout.suit.corner.nw,
 	-- awful.layout.suit.corner.ne,
@@ -386,11 +386,11 @@ globalkeys = gears.table.join(
 	end, { description = "go back", group = "client" }),
 
 	-- Standard program
-	awful.key({ modkey }, "Return", function()
+	awful.key({ modkey }, "q", function()
 		awful.spawn(terminal)
 	end, { description = "open a terminal", group = "launcher" }),
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
-	awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
+	awful.key({ modkey, "Shift" }, "e", awesome.quit, { description = "quit awesome", group = "awesome" }),
 
 	awful.key({ modkey }, "l", function()
 		awful.tag.incmwfact(0.05)
@@ -434,7 +434,7 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "r", function()
 		awful.spawn('rofi -show drun -icon-theme "Papirus" -show-icons')
 	end, { description = "rofi run prompt", group = "launcher" }),
-	awful.key({ modkey }, "c", function()
+	awful.key({ modkey }, "y", function()
 		awful.spawn("clipmenu")
 	end, { description = "show clipmenu", group = "launcher" }),
 
@@ -471,7 +471,7 @@ clientkeys = gears.table.join(
 	awful.key({ modkey }, ",", function()
 		awful.client.incwfact(0.05)
 	end, { description = "increase client size", group = "client" }),
-	awful.key({ modkey, "Shift" }, "c", function(c)
+	awful.key({ modkey }, "c", function(c)
 		c:kill()
 	end, { description = "close", group = "client" }),
 	awful.key(

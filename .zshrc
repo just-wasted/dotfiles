@@ -108,3 +108,5 @@ eval "$(zoxide init zsh)"
 #fi
 # End: PlatformIO Core completion support
 
+
+. "$HOME/.local/share/../bin/env"

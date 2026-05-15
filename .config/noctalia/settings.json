@@ -18,6 +18,7 @@
         "ignoreMouseInput": false,
         "overviewLayer": false,
         "pinnedApps": [
+            "org.mozilla.firefox"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -180,13 +181,6 @@
                     "textColor": "none"
                 },
                 {
-                    "displayMode": "alwaysHide",
-                    "iconColor": "none",
-                    "id": "Microphone",
-                    "middleClickCommand": "pwvucontrol || pavucontrol",
-                    "textColor": "none"
-                },
-                {
                     "compactMode": true,
                     "diskPath": "/",
                     "iconColor": "none",
@@ -217,13 +211,10 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
+                        "Connected. Frankfurt, Germany",
+                        "Disconnected",
+                        "Connected. Dusseldorf, Germany"
                     ]
-                },
-                {
-                    "displayMode": "alwaysHide",
-                    "iconColor": "none",
-                    "id": "VPN",
-                    "textColor": "none"
                 },
                 {
                     "defaultSettings": {
