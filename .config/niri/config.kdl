@@ -604,6 +604,7 @@ binds {
     Mod+Shift+P { switch-preset-window-height; }
     Mod+Ctrl+P { reset-window-height; }
     Mod+F { maximize-column; }
+    Mod+M { maximize-window-to-edges; }
     Mod+Shift+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.

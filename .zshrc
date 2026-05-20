@@ -107,6 +107,3 @@ eval "$(zoxide init zsh)"
 #	eval "$(_PIO_COMPLETE=zsh_source pio)"
 #fi
 # End: PlatformIO Core completion support
-
-
-. "$HOME/.local/share/../bin/env"
