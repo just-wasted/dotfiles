@@ -1,0 +1,191 @@
+[audio]
+enable_sounds = true
+
+[backdrop]
+enabled = true
+
+[bar.default]
+center = [ "clock", "date", "caffeine", "notifications" ]
+end = [
+    "privacy",
+    "spacer_5",
+    "cpu",
+    "ram",
+    "network_rx",
+    "network_tx",
+    "spacer_2",
+    "volume",
+    "clipboard",
+    "tray",
+    "power_profile",
+    "spacer_6",
+    "control-center"
+]
+margin_ends = 0
+radius = 16
+radius_bottom_left = 16
+radius_top_left = 0
+radius_top_right = 0
+scale = 1.1500000096857548
+start = [ "taskbar", "spacer_4", "active_window" ]
+
+[control_center]
+hidden_tabs = [ "weather" ]
+
+    [control_center.calendar]
+    show_week_numbers = true
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+    [[control_center.shortcuts]]
+    type = "mic_mute"
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 1200.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
+[lockscreen]
+fingerprint = false
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@HDMI-A-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[shell]
+polkit_agent = true
+
+    [shell.animation]
+    enabled = false
+
+    [shell.panel]
+    clipboard_placement = "attached"
+    open_near_click_clipboard = true
+    open_near_click_control_center = true
+    open_near_click_session = true
+
+    [shell.shadow]
+    alpha = 0.85
+
+[system.monitor]
+cpu_usage_activity_threshold = 10
+cpu_temp_sensor_path = "/sys/class/hwmon/hwmon1/temp3_input"
+
+[theme]
+builtin = "Nord"
+
+    [theme.templates]
+    enable_community_templates = false
+
+[wallpaper]
+directory = "/home/wasted/.config/wallpaper"
+
+    [wallpaper.default]
+    path = "/home/wasted/.config/wallpaper/wp.jpg"
+
+    [wallpaper.last]
+    path = "/home/wasted/.config/wallpaper/wp.jpg"
+
+[weather]
+enabled = false
+
+[widget.active_window]
+display = "text_only"
+
+[widget.cpu]
+show_value = false
+
+[widget.network_rx]
+show_value = false
+
+[widget.network_tx]
+show_value = false
+
+[widget.ram]
+show_value = false
+
+[widget.spacer_2]
+type = "spacer"
+
+[widget.spacer_4]
+type = "spacer"
+
+[widget.spacer_5]
+type = "spacer"
+
+[widget.spacer_6]
+type = "spacer"
+
+[widget.sysmon]
+show_value = false
+
+[widget.taskbar]
+group_by_workspace = true
+group_single_icon_per_app = true
+inactive_opacity = 0.75
+show_all_outputs = true
+workspace_label_placement = "centered"
+
+[widget.tray]
+drawer = true
+
+[widget.volume]
+show_label = false
+
+[widget.workspaces]
+pill_scale = 0.65000000000000002
+show_labels = false
